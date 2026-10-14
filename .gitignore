@@ -27,3 +27,8 @@ frontend/dist/
 
 # Local teaching materials (keep on disk, not in git)
 teaching/
+
+# Azure Functions local secrets
+function-app/local.settings.json
+function-app/.venv/
+function-app/.python_packages/
