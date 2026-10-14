@@ -2,8 +2,11 @@
   "version": "2.0",
   "extensions": {
     "mcp": {
+      "instructions": "Flight Buddy MCP: search, rank, and summarize live flights via SerpApi Google Flights.",
+      "serverName": "flight-buddy-mcp",
+      "serverVersion": "1.0.0",
       "system": {
-        "webhookAuthorizationLevel": "Function"
+        "webhookAuthorizationLevel": "System"
       }
     }
   },
