@@ -1,0 +1,262 @@
+.chunk-lab {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.chunk-lab-header h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.chunk-lab-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin: 1.5rem 0 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(20, 33, 43, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.control-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 180px;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.control-field select,
+.control-field input[type='range'] {
+  width: 100%;
+}
+
+.control-field select {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--paper-deep);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.doc-description,
+.strategy-hint {
+  margin: 0.35rem 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.strategy-hint {
+  font-style: italic;
+}
+
+.chunk-lab-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 1rem 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  color: var(--sea-deep);
+}
+
+.chunk-lab-stats span {
+  padding: 0.3rem 0.65rem;
+  background: rgba(15, 110, 106, 0.1);
+  border-radius: 999px;
+}
+
+.chunk-lab-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .chunk-lab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(20, 33, 43, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.15rem 1.25rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.panel h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sea);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.document-viewer {
+  max-height: 520px;
+  overflow: auto;
+  border: 1px solid var(--paper-deep);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.document-plain,
+.document-highlighted {
+  margin: 0;
+  padding: 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.chunk-mark {
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.chunk-mark.active {
+  outline: 2px solid var(--sea-deep);
+  outline-offset: 1px;
+}
+
+.chunk-group + .chunk-group {
+  margin-top: 1.25rem;
+}
+
+.chunk-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--paper-deep);
+  border-left: 4px solid var(--sea);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.chunk-card:hover {
+  box-shadow: 0 6px 16px rgba(20, 33, 43, 0.08);
+}
+
+.chunk-card.active {
+  border-color: var(--sea);
+  box-shadow: 0 0 0 2px rgba(15, 110, 106, 0.2);
+}
+
+.chunk-card.parent {
+  border-left-color: var(--ink-soft);
+  background: #f8f6f2;
+}
+
+.chunk-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.chunk-id {
+  font-family: "SF Mono", Consolas, monospace;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.chunk-label,
+.chunk-meta {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  color: var(--sea-deep);
+}
+
+.chunk-badge {
+  margin-left: auto;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(15, 110, 106, 0.12);
+  color: var(--sea-deep);
+}
+
+.chunk-badge.muted {
+  background: rgba(61, 79, 92, 0.12);
+  color: var(--ink-soft);
+}
+
+.chunk-text {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.chunk-range {
+  margin: 0.4rem 0 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.suggested-panel {
+  margin-top: 1.25rem;
+}
+
+.question-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.question-chip {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+}
+
+.app-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.app-nav button {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--paper-deep);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.app-nav button.active {
+  background: var(--sea);
+  border-color: var(--sea);
+  color: #fff;
+}

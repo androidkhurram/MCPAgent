@@ -1,0 +1,530 @@
+:root {
+  --ink: #14212b;
+  --ink-soft: #3d4f5c;
+  --paper: #f3efe6;
+  --paper-deep: #e5ddd0;
+  --sea: #0f6e6a;
+  --sea-deep: #0a4f4c;
+  --sand: #d9b48f;
+  --danger: #9b2c2c;
+  --radius: 14px;
+  --shadow: 0 18px 40px rgba(20, 33, 43, 0.08);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia,
+    serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(217, 180, 143, 0.35), transparent 42%),
+    radial-gradient(circle at 88% 0%, rgba(15, 110, 106, 0.18), transparent 40%),
+    linear-gradient(160deg, #f7f3eb 0%, #ebe4d7 55%, #e2d8c8 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+}
+
+a {
+  color: var(--sea-deep);
+}
+
+.app-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app-header {
+  margin-bottom: 1.75rem;
+}
+
+.brand {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sea);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.app-header h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.flight-numbers {
+  font-weight: 500;
+  color: var(--ink-soft);
+  font-size: 0.9em;
+}
+
+.mcp-panel {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(20, 33, 43, 0.08);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.mcp-panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+
+.mcp-panel h3 {
+  margin: 0.9rem 0 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sea);
+  font-family: inherit;
+}
+
+.mcp-roles {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.mcp-roles div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.45rem 0.55rem;
+  background: var(--paper-deep);
+  border-radius: 8px;
+}
+
+.mcp-roles strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sea-deep);
+}
+
+.mcp-roles span {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.mcp-tool-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.mcp-tool-list li {
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid rgba(20, 33, 43, 0.06);
+}
+
+.mcp-tool-list code {
+  font-size: 0.88rem;
+  color: var(--sea-deep);
+}
+
+.mcp-tool-list p {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.tagline {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--ink-soft);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.chat,
+.results-panel {
+  background: rgba(255, 252, 247, 0.82);
+  border: 1px solid rgba(20, 33, 43, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.empty-state {
+  margin: auto 0;
+  color: var(--ink-soft);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+}
+
+.bubble {
+  max-width: 92%;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: var(--paper);
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: #d8ebe8;
+}
+
+.bubble.assistant {
+  align-self: flex-start;
+  background: #fffaf3;
+}
+
+.bubble.status {
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.role-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.chat-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-top: 1px solid rgba(20, 33, 43, 0.08);
+  background: rgba(243, 239, 230, 0.65);
+}
+
+.chat-input textarea {
+  resize: vertical;
+  min-height: 64px;
+  border: 1px solid rgba(20, 33, 43, 0.12);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  background: #fffcf7;
+  color: var(--ink);
+}
+
+.chat-input textarea:focus {
+  outline: 2px solid rgba(15, 110, 106, 0.35);
+  border-color: var(--sea);
+}
+
+.chat-input button {
+  align-self: end;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 1.2rem;
+  background: var(--sea);
+  color: #f7fffe;
+  cursor: pointer;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-weight: 600;
+}
+
+.chat-input button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chat-input button:not(:disabled):hover {
+  background: var(--sea-deep);
+}
+
+.results-panel {
+  padding: 1.25rem;
+  min-height: 560px;
+}
+
+.results-placeholder {
+  margin: 2rem 0 0;
+  color: var(--ink-soft);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+.error-banner {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  background: #f8e4e4;
+  color: var(--danger);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+}
+
+.agent-trace {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(20, 33, 43, 0.1);
+}
+
+.agent-trace-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.agent-trace h2,
+.hotel-results h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.agent-trace h2 {
+  margin-bottom: 0;
+}
+
+.trace-live {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sea);
+  font-weight: 700;
+}
+
+.trace-waiting {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.trace-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.trace-item {
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  background: rgba(243, 239, 230, 0.7);
+}
+
+.trace-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.trace-step {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sea-deep);
+}
+
+.trace-message {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+}
+
+.trace-detail {
+  margin: 0.45rem 0 0;
+  padding: 0.5rem 0.55rem;
+  border-radius: 8px;
+  background: rgba(20, 33, 43, 0.06);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 120px;
+  overflow: auto;
+  color: var(--ink-soft);
+}
+
+.hotel-results h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
+.hotel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hotel-card {
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(20, 33, 43, 0.1);
+}
+
+.hotel-card:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.hotel-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.hotel-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.price-hint {
+  white-space: nowrap;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sea-deep);
+}
+
+.price-hint.muted {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.hotel-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.85rem;
+  margin-top: 0.35rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.84rem;
+}
+
+.rating {
+  font-weight: 700;
+  color: var(--sea-deep);
+}
+
+.rating.muted {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.reviews {
+  color: var(--ink-soft);
+}
+
+.address {
+  margin: 0.35rem 0 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.why,
+.snippet {
+  margin: 0.45rem 0 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+}
+
+.snippet {
+  color: var(--ink-soft);
+}
+
+.hotel-card a {
+  display: inline-block;
+  margin-top: 0.55rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 860px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .chat,
+  .results-panel {
+    min-height: 0;
+  }
+
+  .chat {
+    min-height: 480px;
+  }
+}
