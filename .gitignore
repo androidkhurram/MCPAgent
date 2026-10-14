@@ -23,5 +23,7 @@ frontend/dist/
 .env.local
 
 # Caches / tooling
-teaching/assets/.mplconfig/
 **/.mplconfig/
+
+# Local teaching materials (keep on disk, not in git)
+teaching/
